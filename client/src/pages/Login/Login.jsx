@@ -9,7 +9,7 @@ const Login = () => {
             type="text"
             name="username"
             id="username"
-            placeholder="Enter your username (must be unique)"
+            placeholder="Enter your username"
           />
         </div>
 
