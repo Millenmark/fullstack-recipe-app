@@ -14,7 +14,8 @@ const Register = () => {
       });
       alert("Registration Completed")
     } catch (error) {
-      alert(error?.response?.data?.message)
+      const errorMessage = error?.response?.data?.message;
+      alert(errorMessage);
     }
   }
 
