@@ -5,12 +5,12 @@ import userModel from "../models/userModel.js";
 export const userLogin = async (req, res) => {
   const { username, password } = req.body;
   const user = await userModel.findOne({ username });
-  if (!user) return res.json({ message: "Username or Password is incorrect" });
+  if (!user) return res.status(401).json({ message: "Username or Password is incorrect" });
 
   const isValid = comparePassword(password, user.password);
   if (isValid) {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-    res.json({ token, userID: user._id });
+    res.status(200).json({ token, userID: user._id });
   } else {
     return res
       .status(401)
