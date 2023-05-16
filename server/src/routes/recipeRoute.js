@@ -1,8 +1,15 @@
-import {Router} from "express"
-import { getAllRecipes } from "../controllers/recipeController.js"
+import { Router } from "express";
+import {
+  getAllRecipes,
+  createRecipe,
+  savedRecipes,
+  getSavedRecipes,
+} from "../controllers/recipeController.js";
 
-const recipeRoute = Router()
+const recipeRoute = Router();
 
-recipeRoute.get("/", getAllRecipes)
-
-export default recipeRoute
+recipeRoute.get("/", getAllRecipes);
+recipeRoute.post("/", createRecipe);
+recipeRoute.put("/", savedRecipes);
+recipeRoute.get("/savedRecipes/ids", getSavedRecipes);
+export default recipeRoute;
