@@ -5,6 +5,7 @@ import connectToDatabase from "./database.js";
 
 //routes imports
 import userRoute from "./routes/userRoute.js"
+import recipeRoute from "./routes/recipeRoute.js";
 
 dotenv.config();
 connectToDatabase();
@@ -17,5 +18,6 @@ app.use(cors());
 
 //routes
 app.use("/api/auth", userRoute)
+app.use("/api/recipe", recipeRoute)
 
 app.listen(port, () => console.log("Server is running..."))
